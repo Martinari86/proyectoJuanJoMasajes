@@ -1,0 +1,309 @@
+:root {
+  --color-primario: #a3c1ad;
+  --color-secundario: #f8f4f0;
+  --color-acento: #8ead8d;
+  --color-texto: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-texto);
+  background-color: var(--color-secundario);
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: auto;
+  width: 180px;
+  max-width: 60%;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--color-primario);
+}
+
+/* Sección principal */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4rem 2rem;
+  background-color: var(--color-secundario);
+}
+
+.hero img {
+  height: 80vh;
+  border-radius: 10px;
+}
+
+.carousel {
+  max-width: 400px;
+  margin: 1rem;
+  text-align: center;
+}
+
+#carousel-text {
+  font-size: 2rem;
+  width:400px;
+  color: var(--color-primario);
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Beneficios, opiniones, turno y mapa */
+.benefits, .reviews, .booking, .map {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.benefits {
+  background-color: white;
+}
+
+.benefits h2, .reviews h2, .booking h2 {
+  color: var(--color-primario);
+  margin-bottom: 1.5rem;
+}
+
+.benefits ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.benefits li {
+  background: var(--color-secundario);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.reviews {
+  background-color: var(--color-secundario);
+}
+
+.review-card {
+  max-width: 400px;
+  margin: 1rem auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex; 
+  align-items: center; 
+  text-align: left; 
+}
+
+/* Estilo para la imagen del cliente en la opinión */
+.review-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+    background-color: #eee; /* Añadido para un mejor aspecto del avatar */
+}
+
+.review-text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.stars {
+  color: gold;
+  font-size: 1.2rem;
+  margin-top: 0.5rem; 
+}
+
+.booking {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap:20px
+}
+
+.booking button {
+  background-color: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.booking button:hover {
+  background-color: var(--color-acento);
+}
+
+.map {
+  background-color: var(--color-secundario);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap:20px
+}
+
+.map h2{
+    color:var(--color-acento)
+}
+.map iframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--color-primario);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+footer p {
+  margin: 0.3rem 0;
+}
+
+/* -------------------------------------- */
+/* Botones flotantes (Íconos) - Modificados */
+/* -------------------------------------- */
+
+.whatsapp, .instagram {
+  position: fixed;
+  color: white;
+  border-radius: 50%;
+  width: 60px; /* Tamaño unificado */
+  height: 60px; /* Tamaño unificado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  font-size: 2rem; /* Tamaño de ícono unificado */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Para el hover */
+}
+
+/* Hover effect */
+.whatsapp:hover, .instagram:hover {
+  transform: scale(1.1); /* Agranda ligeramente */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* Sombra más pronunciada */
+}
+
+.whatsapp {
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+}
+
+.instagram {
+  bottom: 95px; 
+  right: 20px; /* Mismo 'right' para que estén alineados */
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Media Query para móvil */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem; 
+    justify-content: space-between; 
+  }
+
+  .logo {
+    width: 150px; 
+    max-width: none;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top: 66px; 
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  nav ul li {
+    padding: 0.5rem 0;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    padding: 2rem 1rem; 
+  }
+  
+  /* Ajuste para el carrusel de texto */
+  #carousel-text {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+
+  .carousel {
+    max-width: 100%;
+  }
+
+  /* Ajuste de íconos flotantes en móvil - se mantiene el mismo tamaño de 60px para ambos */
+  .whatsapp, .instagram {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .instagram {
+    bottom: 75px; /* Reducimos la separación para que quede más compacto en móvil */
+    right: 20px;
+  }
+}
