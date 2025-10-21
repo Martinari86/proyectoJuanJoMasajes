@@ -367,7 +367,7 @@ footer p {
   .hero {
     flex-direction: column-reverse;
     padding: 2rem 1rem; 
-    height: 50vh;
+    height: 100vh;
   }
 
   .hero img{
