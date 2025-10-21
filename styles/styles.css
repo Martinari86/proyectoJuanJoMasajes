@@ -33,7 +33,8 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: space-around;
   align-items: center;
   background-color: var(--color-amarillo);
   padding: 1rem 2rem;
@@ -360,7 +361,8 @@ footer p {
   }
 
   .menu-toggle {
-    display: block;
+    display:block;
+    
     
   }
 
