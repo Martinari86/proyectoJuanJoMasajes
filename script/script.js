@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         texto2.textContent = palabras2[j];
         texto2.style.opacity = 1;
       }, 900);
-    }, 7000);
+    }, 10000);
   } else {
       console.warn("ADVERTENCIA: Elemento con ID 'carousel-text1' no encontrado. El carrusel de Stories no funcionará.");
   }
