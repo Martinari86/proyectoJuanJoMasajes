@@ -24,6 +24,12 @@
   padding: 0;
 }
 
+html {
+  /* Establece un relleno superior al desplazarse a un fragmento de URL (#seccion) */
+  /* El valor (ej. 130px) debe ser un poco mayor que la altura máxima del header para evitar superposición. */
+  scroll-padding-top: 100px; 
+}
+
 body {
   font-family: 'Now Medium', sans-serif;
   color: var(--color-texto);
