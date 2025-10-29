@@ -131,9 +131,9 @@ nav a:hover {
 .textoCarousel{
   width: 50%;
   line-height: 2;
-  /* ✨ CAMBIO APLICADO: Habilita la transición suave para el carrusel de texto de Quien Soy */
+  /* ✨ AÑADIR ESTAS LÍNEAS para la transición de opacidad */
   transition: opacity 0.9s ease-in-out; 
-  opacity: 1; 
+  opacity: 1; /* Establece la opacidad inicial a 1 (visible) */
 }
 
 .quiensoy img {
@@ -292,7 +292,33 @@ footer p {
   color: white;
   border-radius: 50%;
   width: 60px; /* Tamaño unificado */
-  height: 60px;
+  height: 60px; /* Tamaño unificado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  font-size: 2rem; /* Tamaño de ícono unificado */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Para el hover */
+}
+
+/* Hover effect */
+.whatsapp:hover, .instagram:hover {
+  transform: scale(1.1); /* Agranda ligeramente */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* Sombra más pronunciada */
+}
+
+.whatsapp {
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+}
+
+.instagram {
+  bottom: 95px; 
+  right: 20px; /* Mismo 'right' para que estén alineados */
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 /* Menú hamburguesa */
@@ -366,7 +392,10 @@ footer p {
 
   .textoCarousel{
   font-size: 12px;
-}
+  /* ✨ AÑADIR ESTAS LÍNEAS para que también tenga la transición en móvil */
+  transition: opacity 0.9s ease-in-out; 
+  opacity: 1;
+  }
 
   /* Ajuste de íconos flotantes en móvil - se mantiene el mismo tamaño de 60px para ambos */
   .whatsapp, .instagram {
@@ -457,4 +486,12 @@ footer p {
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
+.fotoFooter{
+  width: 80%;
+}
+footer p {
+  font-size: 10px;
+}
+
 }
