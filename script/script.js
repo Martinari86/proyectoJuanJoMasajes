@@ -4,9 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Menú hamburguesa ---
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.querySelector('nav ul');
+  const navLinks = document.querySelectorAll('nav ul li a'); // Se agregan los enlaces
 
   menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
+  });
+
+  // Ocultar el menú al hacer clic en un enlace (nuevo)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Remover la clase 'active' para ocultar el menú
+      navMenu.classList.remove('active');
+    });
   });
 
   // --- Carrusel de palabras 1 (Inicio) ---
@@ -15,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const texto = document.getElementById('carousel-text');
 
   // Aseguramos que el elemento exista antes de intentar manipularlo
-  if (texto) { 
+  if (texto) {
     setInterval(() => {
       texto.style.opacity = 0;
       setTimeout(() => {
@@ -30,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // --- Carrusel de stories 2 (Stories) ---
-  const palabras2 = ["Desde que tengo memoria recuerdo como un impulso, algo totalmente intuitivo, cómo de forma lúdica me subía a un banquito y practicaba en los hombros de mi tía o de mi mamá ciertos golpecitos corporales que intentaban ser una sesión de masajes.", 
-                     "De adulto seguí practicando esos intentos con mis seres queridos, con las personas más cercanas. Esa motivación por brindar un bienestar a los otros continuó, aunque mi profesión fue por el camino de las relaciones públicas, del periodismo y de la comunicación.", 
+  const palabras2 = ["Desde que tengo memoria recuerdo como un impulso, algo totalmente intuitivo, cómo de forma lúdica me subía a un banquito y practicaba en los hombros de mi tía o de mi mamá ciertos golpecitos corporales que intentaban ser una sesión de masajes.",
+                     "De adulto seguí practicando esos intentos con mis seres queridos, con las personas más cercanas. Esa motivación por brindar un bienestar a los otros continuó, aunque mi profesión fue por el camino de las relaciones públicas, del periodismo y de la comunicación.",
                      "Luego de mucho tiempo, decidí reencontrarme con ese camino y estudiar. Decidí ponerle formalidad, teoría y profesionalismo a ese impulso inherente y llevarlo a cabo como una nueva forma de vida.",
                     "La comunicación y la realización de masajes me parecían recorridos muy distintos, pero alguien con buen tino me dijo que la motivación por hacerle un bien al otro es también comunicarse, es conectar..."];
   let j = 0;
   // Asegúrate de que este ID ('carousel-text1') exista en tu HTML
-  const texto2 = document.getElementById('carousel-text1'); 
+  const texto2 = document.getElementById('carousel-text1');
 
   // Aseguramos que el elemento exista antes de intentar manipularlo
   if (texto2) {
@@ -58,19 +67,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.review-item');
   const totalItems = items.length;
   let currentIndex = 0;
-  
+
   // Establece la duración entre cada cambio (ej: 4000 milisegundos = 4 segundos)
-  const intervalTime = 4000; 
+  const intervalTime = 4000;
 
   function nextReview() {
     // Calcula el índice de la siguiente review
     currentIndex = (currentIndex + 1) % totalItems;
-    
+
     // Mueve el carrusel horizontalmente
     const offset = -currentIndex * 100; // Mueve -100% por cada índice
     carousel.style.transform = `translateX(${offset}%)`;
   }
-  
+
   // Inicia el movimiento automático
   let carouselInterval = setInterval(nextReview, intervalTime);
 
@@ -83,6 +92,5 @@ document.addEventListener('DOMContentLoaded', () => {
   carousel.addEventListener('mouseleave', () => {
     carouselInterval = setInterval(nextReview, intervalTime);
   });
-  
-});
 
+});
