@@ -461,6 +461,29 @@ footer p {
     right: 20px;
   }
 
+  .turnos-aqui {
+    position: fixed;
+    font-family: 'Now Medium', sans-serif;
+    
+    /* Calcula la posición justo encima del icono de Instagram */
+    /* bottom: 170px (95px de instagram + 75px de altura del texto y espacio) */
+    bottom: 140px; 
+    right: 20px;
+    background-color: var(--color-amarillo); /* Un color que resalte, como tu color acento o un amarillo brillante */
+    color: var(--color-negro); /* O un color oscuro para que contraste */
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Más alto que los íconos para estar encima */
+    cursor: pointer; /* Indica que es interactivo */
+    user-select: none; /* Evita que se pueda seleccionar el texto */
+    animation: blink 1.5s infinite alternate; /* Aplica la animación de parpadeo */
+    /*text-shadow: 1px 1px 2px rgba(0,0,0,0.2);*/ /* Sutil sombra para que resalte */
+}
+
   .review-text-container {
     display: flex;
     flex-direction: column;
