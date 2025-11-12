@@ -83,8 +83,8 @@ nav a:hover {
   background-color: var(--color-secundario);
   background-image: url("../img/introBN3.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-repeat: repeat;
+  background-attachment: local;
   background-position: center center;
 }
 
@@ -105,11 +105,6 @@ nav a:hover {
   font-size: 140px;
   color: var(--color-amarillo); /* El color de relleno del texto */
   /* Aplicar un borde negro usando múltiples sombras de texto */
-  text-shadow: 
-    -3px -3px 0 var(--color-negro), /* Arriba a la izquierda */
-     3px -3px 0 var(--color-negro), /* Arriba a la derecha */
-    -3px  3px 0 var(--color-negro), /* Abajo a la izquierda */
-     3px  3px 0 var(--color-negro); /* Abajo a la derecha */
   transition: opacity 0.8s ease-in-out;
 }
 /* --- FIN DEL ESTILO ORIGINAL --- */
@@ -340,16 +335,18 @@ footer p {
 
 .turnos-aqui {
     position: fixed;
+    font-family: 'Now Medium', sans-serif;
+    
     /* Calcula la posición justo encima del icono de Instagram */
     /* bottom: 170px (95px de instagram + 75px de altura del texto y espacio) */
     bottom: 170px; 
     right: 20px;
     background-color: var(--color-amarillo); /* Un color que resalte, como tu color acento o un amarillo brillante */
     color: var(--color-negro); /* O un color oscuro para que contraste */
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 8px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1001; /* Más alto que los íconos para estar encima */
