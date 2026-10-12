@@ -1,7 +1,11 @@
+/* ============================================================
+   JUANJO MASAJES — HOJA DE ESTILOS PRINCIPAL
+   ============================================================ */
+
 @font-face {
   font-family: 'Now Medium';
   src: url('../img/now.medium.otf') format('opentype');
-  font-weight: normal; /* o 500, según como quieras usarlo */
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -13,10 +17,13 @@
   --color-amarillo: #ffde59;
   --color-gris-oscuro: #545454;
   --color-gris-claro: #737373;
-  --color-negro: #000000
-
+  --color-negro: #000000;
 }
 
+
+/* ============================================================
+   1. RESET Y BASE
+   ============================================================ */
 
 * {
   box-sizing: border-box;
@@ -25,9 +32,9 @@
 }
 
 html {
-  /* Establece un relleno superior al desplazarse a un fragmento de URL (#seccion) */
-  /* El valor (ej. 130px) debe ser un poco mayor que la altura máxima del header para evitar superposición. */
-  scroll-padding-top: 100px; 
+  scroll-padding-top: 100px;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -35,7 +42,20 @@ body {
   color: var(--color-texto);
   background-color: var(--color-secundario);
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ============================================================
+   2. HEADER Y NAVEGACIÓN
+   ============================================================ */
 
 header {
   display: flex;
@@ -44,8 +64,8 @@ header {
   align-items: center;
   background-color: var(--color-amarillo);
   padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: sticky;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
   top: 0;
   z-index: 1000;
 }
@@ -53,26 +73,49 @@ header {
 .logo {
   height: 80px;
   width: auto;
-  max-width: 60%;
 }
 
 nav ul {
   display: flex;
   gap: 1.5rem;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 nav a {
   text-decoration: none;
   color: var(--color-texto);
   font-weight: 500;
+  transition: color 0.25s ease;
 }
 
 nav a:hover {
-  color: var(--color-amarillo);
+  color: var(--color-negro);
+  font-weight: 700;
 }
 
-/* Sección principal */
+.btn-header-cta {
+  background-color: var(--color-negro);
+  color: var(--color-amarillo);
+  text-decoration: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-header-cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+
+/* ============================================================
+   3. HERO (#inicio)
+   ============================================================ */
+
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -83,93 +126,402 @@ nav a:hover {
   background-color: var(--color-secundario);
   background-image: url("../img/introBN3.jpg");
   background-size: cover;
-  background-repeat: repeat;
-  background-attachment: local;
+  background-repeat: no-repeat;
   background-position: center center;
+  overflow: hidden;
 }
 
 .hero img {
   height: 80vh;
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
   border-radius: 10px;
 }
 
-/* --- ESTILO ORIGINAL DEL CARRUSEL DE TEXTO --- */
 .carousel-logo-style {
   width: auto;
   height: auto;
   transition: opacity 0.8s ease-in-out;
-  opacity: 0; 
+  opacity: 0;
 }
 
 #carousel-text {
-  font-size: 140px;
-  color: var(--color-amarillo); /* El color de relleno del texto */
-  /* Aplicar un borde negro usando múltiples sombras de texto */
+  font-size: clamp(2.5rem, 9vw, 8.75rem);
+  color: var(--color-amarillo);
   transition: opacity 0.8s ease-in-out;
-}
-/* --- FIN DEL ESTILO ORIGINAL --- */
-
-
-.quiensoy {
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  padding: 4rem 2rem;
-  justify-content: space-around;
-  background-color: white;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-word;
 }
 
-.contenedor {
-  display: flex;
-  flex-direction: row;
-  gap:20px;
-  align-items: center;
-
-  justify-items: space-evenly;
-  align-items: center;
+.carousel {
+  max-width: 100%;
   width: 100%;
-  height: 100vh;
-  justify-content: space-around;
-  
-  background-color: white;
-}
-
-.textoQuienSoy{
-  font-size: 50px;
-}
-
-.textoCarousel{
-  width: 50%;
-  line-height: 2;
-  /* ✨ AÑADIR ESTAS LÍNEAS para la transición de opacidad */
-  transition: opacity 0.9s ease-in-out; 
-  opacity: 1; /* Establece la opacidad inicial a 1 (visible) */
-}
-
-.quiensoy img {
-  height: 80vh;
-  border-radius: 10px;
-}
-
-/* Beneficios, opiniones, turno y mapa */
-.benefits, .reviews, .booking, .map {
-  padding: 4rem 2rem;
   text-align: center;
 }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  background-color: var(--color-amarillo);
+  color: var(--color-negro);
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid var(--color-amarillo);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background-color: #fff;
+  border-color: transparent;
+  color: var(--color-negro);
+  transform: translateY(-2px);
+}
+
+.btn-cta:active {
+  background-color: #fff;
+  color: var(--color-negro);
+  transform: translateY(0) scale(0.97);
+}
+
+.block-cta {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+/* ============================================================
+   4. QUIÉN SOY
+   ============================================================ */
+
+.quiensoy {
+  padding: 4rem 2rem;
+  background-color: white;
+  overflow: hidden;
+}
+
+.quiensoy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quiensoy-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.quiensoy-text h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-negro);
+  margin-bottom: 1.5rem;
+}
+
+.quiensoy-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-texto);
+}
+
+.section-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--color-gris-oscuro);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.p-highlight {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--color-gris-oscuro);
+  border-left: 4px solid var(--color-amarillo);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.signature {
+  font-style: normal;
+  font-size: 1.6rem;
+  color: var(--color-amarillo);
+  margin-top: 1.5rem;
+  -webkit-text-stroke: 0.4px var(--color-negro);
+}
+
+
+/* ============================================================
+   5. BIENESTAR PERSONAL
+   ============================================================ */
+
+.bienestar-personal {
+  padding: 4rem 2rem;
+  background-color: var(--color-secundario);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.personal-contenedor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.personal-texto {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.personal-texto h2 {
+  font-size: clamp(2rem, 4vw, 3.125rem);
+  color: var(--color-negro);
+  margin-bottom: 1.5rem;
+}
+
+.personal-texto p {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--color-texto);
+}
+
+.personal-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.personal-imagen img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ============================================================
+   6. BENEFICIOS & BIENESTAR CORPORATIVO
+   ============================================================ */
 
 .benefits {
   background-color: var(--color-secundario);
 }
 
-.benefits h2, .reviews h2, .booking h2 {
+.bienestar-corporativo {
+  padding: 4rem 2rem;
+  background-color: white;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.titulo-bienestar {
+  font-size: clamp(2rem, 5vw, 3.125rem);
+  color: var(--color-negro);
+  margin-bottom: 2.5rem;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.corporate-header {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.corporate-header p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--color-texto);
+}
+
+.nota-servicio {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--color-gris-oscuro);
+}
+
+.beneficios-corp-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lista-beneficios-corp {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.lista-beneficios-corp li {
+  background-color: var(--color-amarillo);
+  color: var(--color-negro);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lista-beneficios-corp li i {
+  color: var(--color-negro);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.beneficios-corp-container.nuevo-diseño {
+  background-color: white;
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  margin-top: 3rem;
+}
+
+.beneficios-corp-container.nuevo-diseño h3 {
+  color: var(--color-negro);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  margin-bottom: 2.5rem;
+}
+
+.beneficios-grid {
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+  text-align: left;
+}
+
+.beneficios-left {
+  flex: 1;
+  position: sticky;
+  top: 130px;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.beneficios-left .img-principal {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.beneficios-right {
+  flex: 1.2;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.beneficio-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.beneficio-item p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-texto);
+}
+
+.beneficio-icono {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.scroll-img {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-img.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.benefits,
+.reviews,
+.booking,
+.map {
+  padding: 4rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.benefits h2,
+.reviews h2,
+.booking h2 {
   color: var(--color-negro);
   margin-bottom: 1.5rem;
 }
 
 .benefits h2 {
-  font-size: 30px;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
 }
 
 .benefits ul {
@@ -180,18 +532,22 @@ nav a:hover {
 }
 
 .benefits li {
-  background:var(--color-amarillo);
-  font-size: 20px;
+  background: var(--color-amarillo);
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
   font-weight: bolder;
   text-align: center;
-  text-justify: center;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+
+/* ============================================================
+   7. RESEÑAS
+   ============================================================ */
+
 .reviews {
-  background-color: white;
+  background: var(--color-secundario);
 }
 
 .review-card {
@@ -200,125 +556,156 @@ nav a:hover {
   background: white;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  display: flex; 
-  align-items: center; 
-  text-align: left; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  text-align: left;
+  flex-wrap: wrap;
 }
 
-/* Estilo para la imagen del cliente en la opinión */
 .review-card img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
-    background-color: #eee; /* Añadido para un mejor aspecto del avatar */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  background-color: #eee;
+  flex-shrink: 0;
 }
 
 .review-text-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  min-width: 0;
 }
 
 .stars {
   color: gold;
   font-size: 1.2rem;
-  margin-top: 0.5rem; 
+  margin-top: 0.5rem;
 }
 
-/* Contenedor principal del carrusel */
 .carousel-container {
-  overflow: hidden; /* Esto oculta las reviews que están fuera de la vista */
+  overflow: hidden;
   width: 100%;
   margin: 0 auto;
 }
 
-/* Contenedor de todas las reviews, que moveremos */
 .review-carousel {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Animación suave al cambiar */
+  transition: transform 0.5s ease-in-out;
 }
 
-/* Estilo para cada review */
 .review-item {
-  min-width: 100%; /* Cada review ocupa el 100% del ancho del contenedor */
+  min-width: 100%;
   box-sizing: border-box;
   padding: 20px;
   text-align: center;
-  flex-shrink: 0; /* Evita que el elemento se encoja */
+  flex-shrink: 0;
 }
 
-/* Estilos de ejemplo para la tipografía */
 .review-item p {
   font-size: 1.2em;
   font-style: italic;
   margin-bottom: 15px;
 }
+
 .review-item cite {
   display: block;
   font-size: 1em;
   color: #555;
 }
 
+.fotoReseña {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 10px;
+}
 
+
+/* ============================================================
+   8. UBICACIÓN / MAPA
+   ============================================================ */
 
 .map {
-  background-color: var(--color-secundario);
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  gap:20px
+  gap: 20px;
 }
 
-.map h2{
-    color:var(--color-negro)
+.map h2 {
+  color: var(--color-negro);
 }
+
 .map iframe {
   width: 100%;
   height: 80vh;
+  max-height: 600px;
   border: none;
   border-radius: 10px;
 }
 
-/* Footer */
+.map .cta-center {
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+
+/* ============================================================
+   9. FOOTER
+   ============================================================ */
+
 footer {
   background-color: var(--color-amarillo);
   color: var(--color-negro);
   text-align: center;
   padding: 2rem 1rem;
+  overflow: hidden;
 }
 
 footer p {
   margin: 0.3rem 0;
 }
 
-/* -------------------------------------- */
-/* Botones flotantes (Íconos) - Modificados */
-/* -------------------------------------- */
+.fotoFooter {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto 1rem;
+}
 
-.whatsapp, .instagram {
+
+/* ============================================================
+   10. BOTONES FLOTANTES
+   ============================================================ */
+
+.whatsapp,
+.instagram {
   position: fixed;
   color: white;
   border-radius: 50%;
-  width: 60px; /* Tamaño unificado */
-  height: 60px; /* Tamaño unificado */
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  font-size: 2rem; /* Tamaño de ícono unificado */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Para el hover */
+  font-size: 2rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Hover effect */
-.whatsapp:hover, .instagram:hover {
-  transform: scale(1.1); /* Agranda ligeramente */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* Sombra más pronunciada */
+.whatsapp:hover,
+.instagram:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .whatsapp {
@@ -328,245 +715,110 @@ footer p {
 }
 
 .instagram {
-  bottom: 95px; 
-  right: 20px; /* Mismo 'right' para que estén alineados */
+  bottom: 95px;
+  right: 20px;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
 .turnos-aqui {
-    position: fixed;
-    font-family: 'Now Medium', sans-serif;
-    
-    /* Calcula la posición justo encima del icono de Instagram */
-    /* bottom: 170px (95px de instagram + 75px de altura del texto y espacio) */
-    bottom: 170px; 
-    right: 20px;
-    background-color: var(--color-amarillo); /* Un color que resalte, como tu color acento o un amarillo brillante */
-    color: var(--color-negro); /* O un color oscuro para que contraste */
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1001; /* Más alto que los íconos para estar encima */
-    cursor: pointer; /* Indica que es interactivo */
-    user-select: none; /* Evita que se pueda seleccionar el texto */
-    animation: blink 1.5s infinite alternate; /* Aplica la animación de parpadeo */
-    /*text-shadow: 1px 1px 2px rgba(0,0,0,0.2);*/ /* Sutil sombra para que resalte */
+  position: fixed;
+  font-family: 'Now Medium', sans-serif;
+  bottom: 170px;
+  right: 20px;
+  max-width: calc(100vw - 40px);
+  background-color: var(--color-amarillo);
+  color: var(--color-negro);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  animation: blink 1.5s infinite alternate;
 }
 
-/* Keyframes para la animación de parpadeo */
 @keyframes blink {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); } /* Sutilmente más grande y menos opaco */
-    100% { opacity: 1; transform: scale(1); }
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-/* Media Query para pantallas más pequeñas si necesitas ajustar la posición */
-@media (max-width: 768px) {
-    .turnos-aqui {
-        bottom: 160px; /* Ajusta si en móvil se ve mal */
-        right: 15px;
-        font-size: 1em;
-        padding: 8px 12px;
-    }
-}
 
-/* Menú hamburguesa */
+/* ============================================================
+   11. MENÚ HAMBURGUESA (mobile/tablet)
+   ============================================================ */
+
 .menu-toggle {
   display: none;
   font-size: 2rem;
   cursor: pointer;
 }
 
-/* Media Query para móvil */
+
+/* ============================================================
+   12. MEDIA QUERIES RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 992px) {
+  .personal-contenedor { gap: 2rem; }
+  .beneficios-grid { gap: 2rem; }
+}
+
 @media (max-width: 768px) {
-  header {
-    padding: 1rem; 
-    justify-content: space-between; 
-  }
+  header { padding: 1rem; justify-content: space-between; }
+  .logo { width: auto; }
+  nav ul { display: none; flex-direction: column; align-items: center; background-color: white; width: 100%; position: absolute; top: 100%; left: 0; padding: 1rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  nav ul li { padding: 0.5rem 0; }
+  nav ul.active { display: flex; background-color: var(--color-amarillo); }
+  .menu-toggle { display: block; }
+  .btn-header-cta { display: none; }
 
-  .logo {
-    width: auto; 
-    max-width: none;
-  }
+  .hero { flex-direction: column-reverse; padding: 2rem 1rem; height: 100vh; }
+  .hero img { width: 60vw; height: auto; max-height: 45vh; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn-cta { width: 100%; }
 
-  nav ul {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-    position: absolute;
-    top: 110px; 
-    left: 0;
-    padding: 1rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
+  .quiensoy { padding: 3rem 1.5rem; }
+  .quiensoy-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .p-highlight { font-size: 1.1rem; text-align: left; }
+  .quiensoy-text p:not(.p-highlight):not(.signature) { text-align: left; }
 
-  nav ul li {
-    padding: 0.5rem 0;
-  }
+  .personal-contenedor { flex-direction: column; gap: 2rem; }
+  .personal-texto { text-align: center; }
+  .personal-texto p { font-size: 16px; line-height: 1.6; }
+  .personal-imagen img { max-height: 45vh; width: 90%; }
 
-  
-  nav ul.active {
-    display: flex;
-    background-color: var(--color-amarillo);
-  }
+  .lista-beneficios-corp { grid-template-columns: 1fr; gap: 1rem; }
+  .lista-beneficios-corp li { font-size: 15px; padding: 1.2rem; }
+  .beneficios-corp-container.nuevo-diseño { padding: 2.5rem 1.5rem; }
+  .beneficios-grid { flex-direction: column; gap: 2rem; }
+  .beneficios-left { position: static; }
+  .beneficios-right { gap: 1.5rem; }
+  .beneficio-item { gap: 1rem; }
+  .beneficio-icono { width: 48px; height: 48px; }
+  .beneficio-item p { font-size: 15px; line-height: 1.5; }
 
-  .menu-toggle {
-    display:block;
-    
-    
-  }
+  .review-card { max-width: 100%; }
+  .review-text-container { font-size: 14px; }
+  .fotoReseña { max-width: 90vw; }
 
-  .hero {
-    flex-direction: column-reverse;
-    padding: 2rem 1rem; 
-    height: 100vh;
-  }
-
-  .hero img{
-    width: 50vw;
-    height: 50vh
-  }
-  
-  /* Ajuste para el carrusel de texto */
-  #carousel-text {
-    font-size: 50px;
-    width: 100%;
-  }
-
-  .carousel {
-    max-width: 100%;
-  }
-
-  .textoCarousel{
-  font-size: 12px;
-  /* ✨ AÑADIR ESTAS LÍNEAS para que también tenga la transición en móvil */
-  transition: opacity 0.9s ease-in-out; 
-  opacity: 1;
-  }
-
-  /* Ajuste de íconos flotantes en móvil - se mantiene el mismo tamaño de 60px para ambos */
-  .whatsapp, .instagram {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-  }
-  
-  .instagram {
-    bottom: 75px; /* Reducimos la separación para que quede más compacto en móvil */
-    right: 20px;
-  }
-
-  .turnos-aqui {
-    position: fixed;
-    font-family: 'Now Medium', sans-serif;
-    
-    /* Calcula la posición justo encima del icono de Instagram */
-    /* bottom: 170px (95px de instagram + 75px de altura del texto y espacio) */
-    bottom: 140px; 
-    right: 20px;
-    background-color: var(--color-amarillo); /* Un color que resalte, como tu color acento o un amarillo brillante */
-    color: var(--color-negro); /* O un color oscuro para que contraste */
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1001; /* Más alto que los íconos para estar encima */
-    cursor: pointer; /* Indica que es interactivo */
-    user-select: none; /* Evita que se pueda seleccionar el texto */
-    animation: blink 1.5s infinite alternate; /* Aplica la animación de parpadeo */
-    /*text-shadow: 1px 1px 2px rgba(0,0,0,0.2);*/ /* Sutil sombra para que resalte */
+  footer p { font-size: 12px; }
+  .whatsapp, .instagram { width: 50px; height: 50px; font-size: 1.5rem; }
+  .instagram { bottom: 75px; right: 20px; }
+  .turnos-aqui { bottom: 140px; right: 20px; font-size: 12px; padding: 5px 10px; }
 }
 
-  .review-text-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 10px;
-}
-.fotoReseña{
-  width: 80vw;
-}
-
-.quiensoy {
-  display: flex;
-  gap: 5px;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  padding: 4rem 2rem;
-  justify-content: space-around;
-  background-color: white;
-}
-
-.contenedor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  justify-content: space-around;
-  
-  background-color: white;
-}
-
-.textoQuienSoy{
-  font-size: 25px;
-  text-align: center;
-}
-
-.textoCarousel{
-  width: 80%;
-  height: 170px;
-  line-height: 2;
-  text-align: center;
-}
-
-.quiensoy img {
-  height: auto;
-  width: 80%;
-  border-radius: 10px;
-}
-
-.benefits h2, .reviews h2, .booking h2 {
-  color: var(--color-negro);
-  margin-bottom: 1.5rem;
-}
-
-.benefits h2 {
-  font-size: 25px;
-}
-
-.benefits ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  list-style: none;
-}
-
-.benefits li {
-  background:var(--color-amarillo);
-  font-size: 15px;
-  font-weight: bolder;
-  text-align: center;
-  text-justify: center;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.fotoFooter{
-  width: 80%;
-}
-footer p {
-  font-size: 10px;
-}
-
+@media (max-width: 480px) {
+  .logo { height: 60px; }
+  .hero img { width: 75vw; max-height: 38vh; }
+  .btn-cta { min-width: 0; width: 100%; }
+  .beneficio-icono { width: 40px; height: 40px; }
+  .whatsapp, .instagram { width: 48px; height: 48px; font-size: 1.4rem; right: 12px; }
+  .whatsapp { bottom: 12px; }
+  .instagram { bottom: 68px; }
+  .turnos-aqui { right: 12px; bottom: 122px; font-size: 11px; padding: 4px 8px; max-width: calc(100vw - 24px); }
 }
