@@ -785,7 +785,7 @@ footer p {
   .quiensoy { padding: 3rem 1.5rem; }
   .quiensoy-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .p-highlight { font-size: 1.1rem; text-align: left; }
-  .quiensoy-text p:not(.p-highlight):not(.signature) { text-align: left; }
+  .quiensoy-text p:not(.p-highlight)p:not(.p-highlight2) :not(.signature) { text-align: left; }
 
   .personal-contenedor { flex-direction: column; gap: 2rem; }
   .personal-texto { text-align: center; }
